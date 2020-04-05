@@ -1,58 +1,95 @@
-// import module from `../models/db.js`
+
 const db = require('../models/db.js');
 
-// defines an object which contains functions executed as callback when
-// a client requests for a certain path in the server
+const User = require('../models/UserModel.js');
+const Item = require('../models/ItemModel.js');
+const Request = require('../models/RequestModel.js');
+const Review = require('../models/ReviewModel.js');
+
 const controller = {
 
 	getHome: function (req, res) {
 		res.render('home', {layout: 'home.hbs'});
 	},
 
+    getSearch: function (req, res) {
+
+        var query = {seller: req.params.query};
+
+        var projection = 'photo iName price';
+
+        db.findMany(Item, query, projection, function (results) {
+
+            if(results != null) {
+                var items = results;
+
+                res.render('browse', 
+                    {
+                        query: req.params.query,
+                        items: results.map(results => results.toJSON())
+                    });
+            }
+        });
+    },
+
 	getBrowse: function (req, res) {
-		res.render('browse');
+        res.render('browse');
 	},
 
     getItem: function (req, res) {
-		
-        // gets the parameter `username` from the URL
-        var i = req.params.iName;
 
-        // creates an object `query` which assigns the value of the variable `u` to field `username`
-        var query = {iName: i};
+        var query = {iName: req.params.iName};
 
-        // calls the function findOne() defined in the `database` object in `../models/db.js`
-        // this function searches the collection `profiles` based on the value set in object `query`
-        // the third parameter is a callback function
-        // this called when the database returns a value saved in variable `result`
-        db.findOne('items', query, function (result) {
+        var projection = 'iName seller price quantity bio MOD meet_location contact photo';
 
-            // renders `../views/profile.hbs` with the values in variable `results`
-            res.render('item', result);
+        db.findOne(Item, query, projection, function (result) {
+
+            if(result != null) {
+                var details = {
+                    iName: result.iName,    
+                    seller: result.seller,
+                    price: result.price,
+                    quantity: result.quantity,
+                    bio: result.bio,
+                    MOD: result.MOD,
+                    meet_location: result.meet_location,
+                    contact: result.contact,
+                    photo: result.photo,
+                };
+
+                res.render('item', details);
+            }
         });
 	},
 
-    // executed when the client sends an HTTP GET request `/:username`
-    // as defined in `../routes/routes.js`
-    getProfile: function (req, res) {
+    getUser: function (req, res) {
 
-        // gets the parameter `username` from the URL
-        var u = req.params.username;
+        var query = {username: req.params.username};
 
-        // creates an object `query` which assigns the value of the variable `u` to field `username`
-        var query = {username: u};
+        var projection = 'fName lName username bio photo';
 
-        // calls the function findOne() defined in the `database` object in `../models/db.js`
-        // this function searches the collection `profiles` based on the value set in object `query`
-        // the third parameter is a callback function
-        // this called when the database returns a value saved in variable `result`
-        db.findOne('profiles', query, function (result) {
+        db.findOne(User, query, projection, function (result) {
+            // db.findMany(Item, query, projection, function (Iresult) {
+            //     res.render('profile',
+            //         {
+            //             username: req.params.username,
 
-            // renders `../views/profile.hbs` with the values in variable `results`
-            res.render('profile', result);
+            //         }
+            // })
+
+            if(result != null) {
+                var details = {
+                    fName: result.fName,    
+                    lName: result.lName,
+                    username: result.username,
+                    bio: result.bio,
+                    photo: result.photo
+                };
+
+                res.render('profile', details);
+            }
         });
     }
 }
 
-// exports the object `controller` (defined above) when another script exports from this file
 module.exports = controller;
