@@ -3,6 +3,14 @@ const express = require('express');
 
 const exphbs = require('express-handlebars');
 
+const session = require('express-session');
+
+const cookieParser = require('cookie-parser');
+
+const mongoose = require('mongoose');
+
+const MongoStore = require('connect-mongo')(session);
+
 const handlebars = require('handlebars');
 
 const multer = require('multer');
@@ -38,11 +46,24 @@ app.engine( 'hbs', exphbs({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(cookieParser());
+
+app.use(session({
+  secret: 'CCAPDEV',
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({mongooseConnection: mongoose.connection})
+}));
+
 app.set('view engine', 'hbs');
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 
 app.use('/', routes);
+
+app.use(function (req, res, next) {
+  res.status(404).send("Sorry can't find that!")
+});
 
 db.connect();
 

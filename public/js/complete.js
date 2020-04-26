@@ -1,24 +1,16 @@
-var modal = document.getElementById("myModal");
-var modal2 = document.getElementById("id02");
+// var modal = document.getElementById("myModal");
+// var modal2 = document.getElementById("id02");
 
-var btn = document.getElementById("myBtn");
+// var btn = document.getElementById("myBtn");
 
-var span = document.getElementsByClassName("close")[0];
+// var span = document.getElementsByClassName("close")[0];
 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal||event.target == modal2) {
-	modal.style.display = "none";
-	modal2.style.display = "none";
-  }
-}
+// window.onclick = function(event) {
+//   if (event.target == modal||event.target == modal2) {
+// 	modal.style.display = "none";
+// 	modal2.style.display = "none";
+//   }
+// }
 
 function readURL(input) {
 	if (input.files && input.files[0]) {
@@ -35,9 +27,16 @@ $("#imageUpload").change(function() {
 	readURL(this);
 });
 
-search = function(e) {
+search1 = function(e) {
 	if (event.keyCode === 13) {
-	location.replace("browse");
+		location.replace("browse/" + $('#search').val());
+	}
+	return false;
+}
+
+search2 = function(e) {
+	if (event.keyCode === 13) {
+		location.replace($('#searchbox2').val());
 	}
 	return false;
 }
@@ -63,7 +62,7 @@ const sectionOneObserver = new IntersectionObserver(function(
 },
 sectionOneOptions);
 
-sectionOneObserver.observe(sectionOne);
+// sectionOneObserver.observe(sectionOne);
 
 $("#inpt_search").on('focus', function () {
 	$(this).parent('label').addClass('active');
@@ -74,16 +73,19 @@ $("#inpt_search").on('blur', function () {
 		$(this).parent('label').removeClass('active');
 });
 
-$("#submit_button").click(function(){
-	if($("#review").val()!=''){
-		$("ol").prepend("<div class='box2 animated jackInTheBox'><div class='review_header'><img src='dpic.jpg'> <div class='review_name'>Anonymous </div></div>"+$("#review").val()+"<div class='edit_delete_reply'><button id='submit_button' class = 'reply'>Reply</button><button id='submit_button' class = 'edit'>Edit</button><button id='submit_button' class = 'delete'>Delete</button></div></div>");
-		$('#review').val('');
-	}
-	else{
-		alert("Can't submit an empty text");
-	}
- });
 
+// REVIEW BOX
+// $("#submit_button").click(function(){
+// 	if($("#review").val()!=''){
+// 		$("ol").prepend("<div class='box2 animated jackInTheBox'><div class='review_header'><img src='dpic.jpg'> <div class='review_name'>Anonymous </div></div>"+$("#review").val()+"<div class='edit_delete_reply'><button id='submit_button' class = 'reply'>Reply</button><button id='submit_button' class = 'edit'>Edit</button><button id='submit_button' class = 'delete'>Delete</button></div></div>");
+// 		$('#review').val('');
+// 	}
+// 	else{
+// 		alert("Can't submit an empty text");
+// 	}
+//  });
+
+// GET CONTACT INFORMATION
  function display() {
 	var T = document.getElementById("contact");
 	if(T.style.display === "none"){
@@ -93,20 +95,39 @@ $("#submit_button").click(function(){
 	}
 }
 
+// ITEM REVIEW WINDOW
 function display() {
 	var S = document.getElementById("sell_item");
 	var I = document.getElementById("Item_review");
+	var E = document.getElementById("edit_profile");
 	if(I.style.display === "none"){
-	I.style.display = "block";  // <-- Set it to block
-	S.style.display = "none";
+		I.style.display = "block";  // <-- Set it to block
+		S.style.display = "none";
+		E.style.display = "block";
 	} 
 }
 
+// SELL ITEM WINDOW
 function Sell_Item() {
 	var S = document.getElementById("sell_item");
 	var I = document.getElementById("Item_review");
+	var E = document.getElementById("edit_profile");
 	if(S.style.display === "none"){
-	S.style.display = "block";  // <-- Set it to block
+		S.style.display = "block";  // <-- Set it to block
+		I.style.display = "none";
+		E.style.display = "none";
+
+	} 
+}
+
+// EDIT PROFIE WINDOW
+function Edit_Profile() {
+	var S = document.getElementById("sell_item");
+	var I = document.getElementById("Item_review");
+	var E = document.getElementById("edit_profile");
+	if(E.style.display === "none"){
+	E.style.display = "block";  // <-- Set it to block
 	I.style.display = "none";
+	S.style.display = "none";
 	} 
 }

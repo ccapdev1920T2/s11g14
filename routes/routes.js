@@ -2,7 +2,8 @@
 const express = require('express');
 
 const controller = require('../controllers/controller.js')
-const signupController = require('../controllers/signupController.js')
+
+const validation = require('../helpers/validation.js');
 
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -20,7 +21,13 @@ const app = express();
 
 app.get('/', controller.getHome);
 
-app.post('/', upload.single('photo'), signupController.postSignUp);
+app.post('/login', controller.postLogIn);
+
+app.post('/', validation.signupValidation(), upload.single('photo'), controller.postSignUp);
+
+app.get('/logout', controller.getLogOut);
+
+app.get('/getCheckusername', controller.getCheckusername);
 
 app.get('/browse/:query', controller.getSearch);
 
@@ -29,6 +36,8 @@ app.get('/browse', controller.getBrowse);
 app.get('/item/:iName', controller.getItem);
 
 app.get('/user/:username', controller.getUser);
+
+app.post('/review', controller.postReview);
 
 // exports the object `app` (defined above) when another script exports from this file
 module.exports = app;
