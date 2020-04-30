@@ -130,23 +130,83 @@ const controller = {
 
     postReview: function (req, res) {
 
-        var reviewtext = req.body.reviewbox;
-        var r = {};
-
         if(req.session.username) {
-            r.reviewer = req.session.username;
-            r.dpreviewer = req.session.photo;
-            r.seller = req.body.username;
-            r.iName = req.body.itemName;
-            r.review = reviewtext;
+
+            var r = {
+                reviewer : req.session.username,
+                dpreviewer : req.session.photo,
+                seller : req.body.seller,
+                iName : req.body.iName,
+                review : req.body.review
+            }
 
             db.insertOne(Review, r);
 
-            if (r.iName == '')
-                res.redirect('user/' + review.seller);
+            if (r.seller != '')
+                res.redirect('user/' + r.seller);
             
+            else if (r.iName != '')
+                res.redirect('item/' + r.iName);
+        }
+    },
+
+    postItem: function (req,res) {
+
+        var errors = validationResult(req.body);
+
+        if (!errors.isEmpty()) {
+
+            errors = errors.errors;
+
+            var details = {};
+
+            if(req.session.username) {
+
+                details.flag = true;
+                details.Cusername = req.session.username;
+            }
             else
-                res.redirect('item/' + review.iName);
+                details.flag = false;
+
+            for(i = 0; i < errors.length; i++)
+                details[errors[i].param + 'Error'] = errors[i].msg;
+
+            console.log(details);
+
+            res.render('profile', details);
+        }
+        else {
+            var iName = req.body.Item_name;
+            var bio = req.body.Description;
+            var price = req.body.Price;
+            var quantity = req.body.Quantity;
+            var contact = req.body.Contact;
+            var MOD = req.body.Payment;
+            var meet_location = req.body.Location;
+            var seller = req.session.username;
+
+            if (req.file == null){
+                var photo = 'img/dpic.jpg';
+            }
+            else
+                var photo = 'img/' + req.file.originalname;
+                
+                var item = {
+                    iName : iName,
+                    bio : bio,
+                    price : price,
+                    quantity : quantity,
+                    contact : contact,
+                    MOD : MOD,
+                    meet_location: meet_location,
+                    seller: seller,
+                    photo: photo
+                }
+
+                db.insertOne(Item, item);
+
+                res.redirect('user/' + req.session.username);
+
         }
     },
 
@@ -280,6 +340,24 @@ const controller = {
         db.findOne(User, {username: username}, 'username', function (result) {
             res.send(result);
         });
+    },
+
+    getDeleteItem: function (req, res) {
+
+        var query = {iName: req.query.iName};
+
+        db.deleteOne(Item, query);
+
+        res.redirect('user/' + req.session.username);
+    },
+
+    getDeleteReview: function (req, res) {
+
+        var query = {review: req.query.review};
+
+        db.deleteOne(Review, query);
+
+        res.redirect('user/' + req.session.username);
     },
 
     getLogOut: function (req, res) {

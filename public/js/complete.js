@@ -1,17 +1,3 @@
-// var modal = document.getElementById("myModal");
-// var modal2 = document.getElementById("id02");
-
-// var btn = document.getElementById("myBtn");
-
-// var span = document.getElementsByClassName("close")[0];
-
-// window.onclick = function(event) {
-//   if (event.target == modal||event.target == modal2) {
-// 	modal.style.display = "none";
-// 	modal2.style.display = "none";
-//   }
-// }
-
 function readURL(input) {
 	if (input.files && input.files[0]) {
 		var reader = new FileReader();
@@ -74,17 +60,6 @@ $("#inpt_search").on('blur', function () {
 });
 
 
-// REVIEW BOX
-// $("#submit_button").click(function(){
-// 	if($("#review").val()!=''){
-// 		$("ol").prepend("<div class='box2 animated jackInTheBox'><div class='review_header'><img src='dpic.jpg'> <div class='review_name'>Anonymous </div></div>"+$("#review").val()+"<div class='edit_delete_reply'><button id='submit_button' class = 'reply'>Reply</button><button id='submit_button' class = 'edit'>Edit</button><button id='submit_button' class = 'delete'>Delete</button></div></div>");
-// 		$('#review').val('');
-// 	}
-// 	else{
-// 		alert("Can't submit an empty text");
-// 	}
-//  });
-
 // GET CONTACT INFORMATION
  function display() {
 	var T = document.getElementById("contact");
@@ -93,7 +68,7 @@ $("#inpt_search").on('blur', function () {
 	} else {
 		T.style.display = "none";
 	}
-}
+};
 
 // ITEM REVIEW WINDOW
 function display() {
@@ -103,9 +78,9 @@ function display() {
 	if(I.style.display === "none"){
 		I.style.display = "block";  // <-- Set it to block
 		S.style.display = "none";
-		E.style.display = "block";
+		E.style.display = "none";
 	} 
-}
+};
 
 // SELL ITEM WINDOW
 function Sell_Item() {
@@ -118,7 +93,7 @@ function Sell_Item() {
 		E.style.display = "none";
 
 	} 
-}
+};
 
 // EDIT PROFIE WINDOW
 function Edit_Profile() {
@@ -130,4 +105,24 @@ function Edit_Profile() {
 	I.style.display = "none";
 	S.style.display = "none";
 	} 
-}
+};
+
+$('.posts-2').on('click', '.close-delete', function () {
+
+	var iName = $(this).siblings('.item_description').text();
+	console.log(iName);
+
+	$(this).parent().remove();
+
+	$.get('/deleteItem', {iName:iName});
+});
+
+$('.reviewlist').on('click', '.delete', function () {
+
+	var review = $(this).parent('.edit_delete_reply').siblings('#reviewdiv').text();
+	console.log(review);
+
+	$(this).parent().parent().remove();
+
+	$.get('/deleteReview', {review:review});
+})
