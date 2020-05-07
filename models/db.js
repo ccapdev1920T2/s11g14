@@ -1,7 +1,7 @@
 
 const mongoose = require ('mongoose');
 
-const url = "mongodb://localhost:27017/CCAPDEV";
+const url = "process.env.MONGODB_URL || mongodb://localhost:27017/s11g14";
 
 const User = require('./UserModel.js');
 const Item = require('./ItemModel.js');
