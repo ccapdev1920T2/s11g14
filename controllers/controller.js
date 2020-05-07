@@ -3,7 +3,6 @@ const db = require('../models/db.js');
 
 const User = require('../models/UserModel.js');
 const Item = require('../models/ItemModel.js');
-const Request = require('../models/RequestModel.js');
 const Review = require('../models/ReviewModel.js');
 
 const { validationResult } = require('express-validator');
@@ -17,10 +16,26 @@ const controller = {
 
 	getHome: function (req, res) {
 
+        var details = {};
+
+        if(req.session.username) {
+            details.flag = true;
+            details.Cusername = req.session.username;
+            details.CfName = req.session.fName;
+        }
+        else
+            details.flag = false;
+
         db.findMany(Item, {}, '', function (results) {
+
+            details.items = results;
+
             res.render('home', 
                 {layout: 'home.hbs',
-                items: results});
+                items: details.items,
+                flag: details.flag,
+                CfName: details.CfName,
+                Cusername: details.Cusername});
         })
 	},
 
