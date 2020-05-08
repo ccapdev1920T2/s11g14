@@ -2,14 +2,44 @@ function readURL(input) {
 	if (input.files && input.files[0]) {
 		var reader = new FileReader();
 		reader.onload = function(e) {
-			$('#imagePreview').css('background-image', 'url('+e.target.result +')');
-			$('#imagePreview').hide();
-			$('#imagePreview').fadeIn(650);
+			$('.imagePreview').css('background-image', 'url('+e.target.result +')');
+			$('.imagePreview').hide();
+			$('.imagePreview').fadeIn(650);
 		}
 		reader.readAsDataURL(input.files[0]);
 	}
 }
 $("#imageUpload").change(function() {
+	readURL(this);
+});
+
+function readURL2(input) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			$('.imagePreview2').css('background-image', 'url('+e.target.result +')');
+			$('.imagePreview2').hide();
+			$('.imagePreview2').fadeIn(650);
+		}
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+$("#photoUpload").change(function() {
+	readURL(this);
+});
+
+function readURL3(input) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			$('.imagePreview3').css('background-image', 'url('+e.target.result +')');
+			$('.imagePreview3').hide();
+			$('.imagePreview3').fadeIn(650);
+		}
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+$("#imageUpload2").change(function() {
 	readURL(this);
 });
 
@@ -22,7 +52,7 @@ search1 = function(e) {
 
 search2 = function(e) {
 	if (event.keyCode === 13) {
-		location.replace($('#searchbox2').val());
+		location.replace("/browse/" + $('#searchbox2').val());
 	}
 	return false;
 }
@@ -61,13 +91,24 @@ $("#inpt_search").on('blur', function () {
 
 
 // GET CONTACT INFORMATION
- function display() {
+function display() {
 	var T = document.getElementById("contact");
-	if(T.style.display === "none"){
-	T.style.display = "block";  // <-- Set it to block
-	} else {
-		T.style.display = "none";
+
+	var F = document.getElementById("flag");
+
+	console.log("flag is " + F);
+
+	if (F)
+	{
+		if(T.style.display === "none"){
+		T.style.display = "block";  // <-- Set it to block
+		} 
+		else {
+			T.style.display = "none";
+		}
 	}
+	else
+		alert('Log in to be able to get more details about the product.');
 };
 
 // ITEM REVIEW WINDOW
