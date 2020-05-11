@@ -35,6 +35,7 @@ To begin, download the repository as a ZIP file or clone the repository via Gith
  Features working:
  - Sign in
   Sample Test Data:
+  
   username: Oninolan
   pw: password
   
@@ -49,6 +50,7 @@ To begin, download the repository as a ZIP file or clone the repository via Gith
   
   username: GretaThunberg
   pw: password
+  
   
   success -> profile page
   
