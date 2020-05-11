@@ -19,50 +19,61 @@ To begin, download the repository as a ZIP file or clone the repository via Gith
 # Setting up
 1. Open command prompt
 2. Navigate to the project folder
-3. Run npm init and use default for everything
-4. Run npm install to download all necessary modules
+3. Run npm install to download all necessary modules
    * modules to be utilized: express, express-handlebars, handlebars, multer, body-parser, mongoose, mongodb, express-session, bcrypt, connect-mongo, cookie-parser
 (to be discussed)
-//Before running the application, check if the database is clear by first running node delete_data.js
-   Add the dummy data to the database by running node add_data.js
-5. You may now start the application by running node index.js or supervisor.js
-6. Wait for the prompt to reply "App listening at port 3000" and "Connected to: mongodb://localhost:27017/s11g14"
+4. You may now start the application by running node index.js or supervisor.js
+5. Wait for the prompt to reply "App listening at port 3000" and "Connected to: Connected to: mongodb+srv://admin:lop3arth@marketplace-vbvog.mongodb.net/test"
 
 # Running the Application:
 1. Connect to the application by using the browser and entering "localhost:3000" and it will lead you to the Home Page of the Website. All other pages may be accessible through the pages.
 2. All other pages may be accessible throught links by the following formats stated below:
-   Browse page - input "localhost:3000/browse/(name of Item)"
+   Browse page - input "localhost:3000/browse/[(name of Item)]". [] - optional
    Item page - input "localhost:3000/item/(name of Item)" the name of the Item includes entering the spaces and the full name of the item
    Profile page - input "localhost:3000/user/(username of User)" the username needs to completely follow the syntax of the User
    
  Features working:
  - Sign in
   Sample Test Data:
-  username: Windoll
-  pw: WindollWindoll
+  username: Oninolan
+  pw: password
+  
+  username: Lop3arth
+  pw: password
+  
+  username: MannyP
+  pw: password
+  
+  username: Tswift
+  pw: password
+  
+  username: GretaThunberg
+  pw: password
   
   success -> profile page
   
  - Registration
-  note: images can be uploaded (not viewable)
- 
- success -> profile page
+  note: images is optional
+    success -> profile page
  
  - Log out
- 
- success -> leads to Home Page
+    success -> leads to Home Page
  
  - search (Home Page)
- can search for item names
- ex. Drone, Assorted Toys, Metal Straw Set
+ can search for item names or enter without any input to view all items
+ ex. Drone, Assorted Toys, Metal Straw Set, etc.
  
  - search (Browse, Item, User)
- can search within where the link is (/user/, /item/, /browse/)
+ can search for item names or enter without any input to view all items
+ ex. Drone, Assorted Toys, Metal Straw Set, etc.
  
  - Seller name
  access to seller's profile
  
  - Item card
  access to item page
+ 
+ - Review User/Item
+  will post the review upon refresh
  
  
