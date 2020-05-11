@@ -22,7 +22,7 @@ To begin, download the repository as a ZIP file or clone the repository via Gith
 3. Run npm install to download all necessary modules
    * modules to be utilized: express, express-handlebars, handlebars, multer, body-parser, mongoose, mongodb, express-session, bcrypt, connect-mongo, cookie-parser
 (to be discussed)
-4. You may now start the application by running node index.js or supervisor.js
+4. You may now start the application by running node index.js or supervisor index.js
 5. Wait for the prompt to reply "App listening at port 3000" and "Connected to: Connected to: mongodb+srv://admin:lop3arth@marketplace-vbvog.mongodb.net/test"
 
 # Running the Application:
