@@ -1,20 +1,23 @@
 # The Marketplace
-# LOPEZ, Earth | OLAN, Gabriel
+## LOPEZ, Earth | OLAN, Gabriel
+## Group 14, S11
 
-This repository contains the website, The Marketplace. The Marketplace acts as a simple item catalog that can be used by users who wishes to buy items from other users or sell their own items may it be brand new or second hand. As a catalog, the website does not include the Buying and Transaction between users but only provides the necessary information to for contacting them outside the application.
+This repository contains the website, The Marketplace. The Marketplace acts as a simple item catalog that can be used by users who wishes to buy items from other users or sell their own items may it be brand new or second hand. As a catalog, the website does not include the Buying and Transaction between users but only provides the necessary information to be able to contact them outside the application.
 
-To begin, download the repository as a ZIP file or clone the repository via Github.
+Running the application can be done by opening the app on **HEROKU** or **LOCALLY**!
+* To open in Heroku: visit https://marketplace-s11g14.herokuapp.com/
+* To open locally: download the repository as a ZIP file or clone the repository via Github.
 
 # Contents
-- delete_data.js => deletes all data that is stored in the database
-- add_data.js => adds the dummy values to the database to be used in the application
-- index.js => main entry point for the application
-- views => folder containing all hbs files to display the pages of the application
-- public => folder containing all static files to be used within the pages of the application
-- helpers => folder containing js files to be used before performing post to the database.
-- routes => folder containing all routes that the server will respond to depending on the method request of the HTTP given a specific path
-- controllers => folder containing all actions that the application will execute as callbank functions for client requests
-- models => folder containing database models and a script for accessing the database
+* delete_data.js - deletes all data that is stored in the database
+* add_data.js - adds the dummy values to the database to be used in the application
+* index.js - main entry point for the application
+* views - folder containing all hbs files to display the pages of the application
+* public - folder containing all static files to be used within the pages of the application
+* helpers - folder containing js files to be used before performing post to the database.
+* routes - folder containing all routes that the server will respond to depending on the method request of the HTTP given a specific path
+* controllers - folder containing all actions that the application will execute as callbank functions for client requests
+* models - folder containing database models and a script for accessing the database
 
 # Setting up
 1. Open command prompt
@@ -33,7 +36,7 @@ To begin, download the repository as a ZIP file or clone the repository via Gith
    Profile page - input "localhost:3000/user/(username of User)" the username needs to completely follow the syntax of the User
    
  Features working:
- - Sign in
+ * Sign in
   Sample Test Data:
   
   username: Oninolan
@@ -52,30 +55,41 @@ To begin, download the repository as a ZIP file or clone the repository via Gith
   pw: password
   
   
-  success -> profile page
+  SUCCESS *=>* profile page
   
- - Registration
-  note: images is optional
+ * Registration
+    * note: images is optional
     success -> profile page
  
- - Log out
-    success -> leads to Home Page
+ * Log out
+    * success -> leads to Home Page
  
- - search (Home Page)
- can search for item names or enter without any input to view all items
- ex. Drone, Assorted Toys, Metal Straw Set, etc.
+ * Search (Home Page)
+    * can search for item names or enter without any input to view all items
+    ex. Drone, Assorted Toys, Metal Straw Set, etc.
  
- - search (Browse, Item, User)
- can search for item names or enter without any input to view all items
- ex. Drone, Assorted Toys, Metal Straw Set, etc.
+ * search (Browse, Item, User pages)
+    * can search for item names or enter without any input to view all items
+    ex. Drone, Assorted Toys, Metal Straw Set, etc.
  
- - Seller name
- access to seller's profile
+ * Seller name
+    * access to seller's profile
  
- - Item card
- access to item page
+ * Item card
+    * access to item page
  
- - Review User/Item
-  will post the review upon refresh
+ * Review User/Item
+    * will post the review upon refresh
+    * will only submit if logged in
  
+ * Get Contact Information
+    * will only open if logged in
+    
+ * Sell an Item
+    * Enter all information for the item to be posted
+    * Button will only show on User's own profile page
+    
+ * Edit Profile
+    * Enter all information with the updated change
+    * Button will only show on user's own profile page
  
