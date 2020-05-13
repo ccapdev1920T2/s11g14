@@ -1,6 +1,6 @@
 # The Marketplace
-## LOPEZ, Earth | OLAN, Gabriel
-## Group 14, S11
+**LOPEZ, Earth | OLAN, Gabriel**
+*Group 14, S11*
 
 This repository contains the website, The Marketplace. The Marketplace acts as a simple item catalog that can be used by users who wishes to buy items from other users or sell their own items may it be brand new or second hand. As a catalog, the website does not include the Buying and Transaction between users but only provides the necessary information to be able to contact them outside the application.
 
@@ -8,7 +8,7 @@ Running the application can be done by opening the app on **HEROKU** or **LOCALL
 * To open in Heroku: visit https://marketplace-s11g14.herokuapp.com/
 * To open locally: download the repository as a ZIP file or clone the repository via Github.
 
-# Contents
+## Contents
 * delete_data.js - deletes all data that is stored in the database
 * add_data.js - adds the dummy values to the database to be used in the application
 * index.js - main entry point for the application
@@ -19,7 +19,7 @@ Running the application can be done by opening the app on **HEROKU** or **LOCALL
 * controllers - folder containing all actions that the application will execute as callbank functions for client requests
 * models - folder containing database models and a script for accessing the database
 
-# Setting up
+## Setting up (if running locally)
 1. Open command prompt
 2. Navigate to the project folder
 3. Run npm install to download all necessary modules
@@ -28,14 +28,18 @@ Running the application can be done by opening the app on **HEROKU** or **LOCALL
 4. You may now start the application by running node index.js or supervisor index.js
 5. Wait for the prompt to reply "App listening at port 3000" and "Connected to: Connected to: mongodb+srv://admin:lop3arth@marketplace-vbvog.mongodb.net/test"
 
-# Running the Application:
-1. Connect to the application by using the browser and entering "localhost:3000" and it will lead you to the Home Page of the Website. All other pages may be accessible through the pages.
-2. All other pages may be accessible throught links by the following formats stated below:
-   Browse page - input "localhost:3000/browse/[(name of Item)]". [] - optional
-   Item page - input "localhost:3000/item/(name of Item)" the name of the Item includes entering the spaces and the full name of the item
-   Profile page - input "localhost:3000/user/(username of User)" the username needs to completely follow the syntax of the User
+## Running the Application:
+* For Heroku:
+    1. Visit https://marketplace-s11g14.herokuapp.com/ on your browser
+
+* or if locally:
+    1. Connect to the application by using the browser and entering "localhost:3000" and it will lead you to the Home Page of the Website. All other pages may be accessible through the pages.
+    2. All other pages may be accessible throught links by the following formats stated below:
+        * Browse page - input "localhost:3000/browse/[(name of Item)]". [] - optional
+        * Item page - input "localhost:3000/item/(name of Item)" the name of the Item includes entering the spaces and the full name of the item
+        * Profile page - input "localhost:3000/user/(username of User)" the username needs to completely follow the syntax of the User
    
- Features working:
+ ## Features working:
  * Sign in
   Sample Test Data:
   
