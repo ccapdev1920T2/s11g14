@@ -1,10 +1,11 @@
 # The Marketplace
 **LOPEZ, Earth | OLAN, Gabriel**
-*Group 14, S11*
+
+*Group 14 - S11*
 
 This repository contains the website, The Marketplace. The Marketplace acts as a simple item catalog that can be used by users who wishes to buy items from other users or sell their own items may it be brand new or second hand. As a catalog, the website does not include the Buying and Transaction between users but only provides the necessary information to be able to contact them outside the application.
 
-Running the application can be done by opening the app on **HEROKU** or **LOCALLY**!
+Running the application can be done by opening the app on **Heroku** or **locally**!
 * To open in Heroku: visit https://marketplace-s11g14.herokuapp.com/
 * To open locally: download the repository as a ZIP file or clone the repository via Github.
 
@@ -24,16 +25,16 @@ Running the application can be done by opening the app on **HEROKU** or **LOCALL
 2. Navigate to the project folder
 3. Run npm install to download all necessary modules
    * modules to be utilized: express, express-handlebars, handlebars, multer, body-parser, mongoose, mongodb, express-session, bcrypt, connect-mongo, cookie-parser
-4. You may now start the application by running node index.js or supervisor index.js
-5. Wait for the prompt to reply "App listening at port 3000" and "Connected to: Connected to: mongodb+srv://admin:lop3arth@marketplace-vbvog.mongodb.net/test"
+4. You may now start the application by running 'node index.js' or 'supervisor index.js'
+5. Wait for the prompt to reply "App listening at port 3000" and "Connected to: mongodb+srv://admin:lop3arth@marketplace-vbvog.mongodb.net/test"
 
 ## Running the Application:
 * For Heroku:
     1. Visit https://marketplace-s11g14.herokuapp.com/ on your browser
     2. All other pages may be accessible throught links by the following formats stated below:
-        * Browse page - input "https://marketplace-s11g14.herokuapp.com/browse/[(name of Item)]". [] - optional
-        * Item page - input "https://marketplace-s11g14.herokuapp.com/item/(name of Item)" the name of the Item includes entering the spaces and the full name of the item
-        * Profile page - input "https://marketplace-s11g14.herokuapp.com/user/(username of User)" the username needs to completely follow the syntax of the User
+        * Browse page - input "https://marketplace-s11g14.herokuapp.com/browse/[(nameofItem)]". [] - optional
+        * Item page - input "https://marketplace-s11g14.herokuapp.com/item/(nameofItem)" the name of the Item includes entering the spaces and the full name of the item
+        * Profile page - input "https://marketplace-s11g14.herokuapp.com/user/(usernameofUser)" the username needs to completely follow the syntax of the User
 
 * or if locally:
     1. Connect to the application by using the browser and entering "localhost:3000" and it will lead you to the Home Page of the Website. All other pages may be accessible through the pages.
@@ -45,21 +46,14 @@ Running the application can be done by opening the app on **HEROKU** or **LOCALL
  ## Features working:
  * Sign in
     Sample Test Data:
-  
-    username: Lop3arth ,
-    pw: password
-  
-    username: Oninolan ,
-    pw: password
-  
-    username: MannyP ,
-    pw: password
-  
-    username: Tswift ,
-    pw: password
-  
-    username: GretaThunberg ,
-    pw: password
+    
+    | Username | Password |
+    | ---------- | ----------|
+    | Lop3arth | password |
+    | Oninolan | password |
+    | MannyP | password |
+    | Tswift | password |
+    | GretaThunberg | password |
   
     SUCCESS *=>* profile page
   
