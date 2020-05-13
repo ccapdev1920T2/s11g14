@@ -41,25 +41,24 @@ Running the application can be done by opening the app on **HEROKU** or **LOCALL
    
  ## Features working:
  * Sign in
-  Sample Test Data:
+    Sample Test Data:
   
-  username: Oninolan
-  pw: password
+    username: Oninolan
+    pw: password
   
-  username: Lop3arth
-  pw: password
+    username: Lop3arth
+    pw: password
   
-  username: MannyP
-  pw: password
+    username: MannyP
+    pw: password
   
-  username: Tswift
-  pw: password
+    username: Tswift
+    pw: password
   
-  username: GretaThunberg
-  pw: password
+    username: GretaThunberg
+    pw: password
   
-  
-  SUCCESS *=>* profile page
+    SUCCESS *=>* profile page
   
  * Registration
     * note: images is optional
