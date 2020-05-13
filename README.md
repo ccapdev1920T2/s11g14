@@ -31,6 +31,12 @@ Running the application can be done by opening the app on **HEROKU** or **LOCALL
 ## Running the Application:
 * For Heroku:
     1. Visit https://marketplace-s11g14.herokuapp.com/ on your browser
+    2. All other pages may be accessible throught links by the following formats stated below:
+        * Browse page - input "https://marketplace-s11g14.herokuapp.com/browse/[(name of Item)]". [] - optional
+        * Item page - input "https://marketplace-s11g14.herokuapp.com/item/(name of Item)" the name of the Item includes entering the spaces and the full name of the item
+        * Profile page - input "https://marketplace-s11g14.herokuapp.com/user/(username of User)" the username needs to completely follow the syntax of the User
+   
+ ## Fea
 
 * or if locally:
     1. Connect to the application by using the browser and entering "localhost:3000" and it will lead you to the Home Page of the Website. All other pages may be accessible through the pages.
