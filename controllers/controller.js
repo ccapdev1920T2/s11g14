@@ -130,7 +130,8 @@ const controller = {
                     else {
                         var details = {flag: false, error: `Username and/or Password is incorrect.`}
                         res.render('home', {layout: 'home.hbs',
-                                    error: details.error});
+                                            error: details.error,
+                                            fail: true});
                     }
                 });
             }
@@ -138,7 +139,8 @@ const controller = {
             else {
                 var details = {flag: false, error: `Username and/or Password is incorrect.`}
                 res.render('home', {layout: 'home.hbs',
-                                    error: details.error});
+                                    error: details.error,
+                                    fail: true});
             }
         });
     },
@@ -451,8 +453,9 @@ const controller = {
         var query = {iName: req.query.iName};
 
         db.deleteOne(Item, query);
+        db.deleteMany(Review, query);
 
-        res.redirect('user/' + req.session.username);
+        res.redirect('/user/' + req.session.username);
     },
 
     getDeleteReview: function (req, res) {
